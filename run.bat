@@ -1,0 +1,3 @@
+perl main.pl
+
+set /p DUMMY=Hit ENTER to continue...
