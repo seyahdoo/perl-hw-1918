@@ -80,11 +80,11 @@ my(%rna_to_protein_array) = (
 sub main {
      
     my $filename = 'data.txt';
-    open(my $fh, '<:encoding(UTF-8)', $filename)
+    open(my $input_file_handler, '<:encoding(UTF-8)', $filename)
       or die "Could not open file '$filename' $!";
      
     my $sequence;
-    while (my $row = <$fh>) {
+    while (my $row = <$input_file_handler>) {
       chomp $row;
       $sequence = $row;
     }
@@ -112,6 +112,14 @@ sub main {
     }
 
     print "Protein Sequence: $out\n";
+
+
+    print "Outputing protein sequence to 'out.txt'\n";
+    open(my $output_file_handler, '>', 'out.txt');
+    print $output_file_handler "$out\n";
+    close $output_file_handler;
+    print "Done.\n";
+
 
 
 }
